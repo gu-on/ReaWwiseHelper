@@ -90,6 +90,8 @@ function JsonMap:Set(key, value)
     if IsJsonType(value) then
         ---@cast value JsonArray|JsonMap
         reaper.AK_AkJson_Map_Set(self.id, key, value.id)
+    elseif type(value) == "string" then
+        reaper.AK_AkJson_Map_Set(self.id, key, reaper.AK_AkVariant_String(value))
     else
         ---@cast value AK_Array|AK_Map|AK_Variant
         reaper.AK_AkJson_Map_Set(self.id, key, value)
