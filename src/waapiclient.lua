@@ -78,7 +78,7 @@ function WaapiClient:WalkProject(start, properties, types)
         error("Waapi client is not connected")
     end
 
-    do                      -- clean up properties
+    do -- clean up properties
         if not properties then
             properties = {} -- ensure table
         elseif type(properties) ~= "table" then
@@ -90,8 +90,7 @@ function WaapiClient:WalkProject(start, properties, types)
         table.insertunique(properties, "type")
     end
 
-    do
-        -- clean up types
+    do -- clean up types
         if not types then
             types = {} -- ensure table
         elseif type(types) ~= "table" then
