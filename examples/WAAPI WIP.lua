@@ -6,11 +6,9 @@ require('reawwisehelper')
 -- local options = JsonMap("command", reaper.AK_AkVariant_String("Help"))
 -- client:Call("ak.wwise.ui.commands.execute", options, JsonMap())
 
-local client = WaapiClient()
+local client <close> = WaapiClient()
 if client then
-    client:WalkProject("\\Actor-Mixer Hierarchy")
-    -- for object in client:WalkProject("\\Actor-Mixer Hierarchy") do
-    --     print(object.path)
-    -- end
-    client:Clear()
+    for obj in client:WalkProject("\\Actor-Mixer Hierarchy\\Default Work Unit") do
+        reaper.ShowConsoleMsg(("%s\n"):format(obj.path))
+    end
 end

@@ -85,12 +85,9 @@ function WaapiClient:WalkProject(start, properties, types)
         self:WalkDepthFirst(start, properties, types)
     end)
 
-    while true do
-        local _, val = coroutine.resume(co)
-
-        if val == nil then break end
-        
-        reaper.ShowConsoleMsg(("%s %s %s\n"):format(val.id, val.path, val.type))
+    return function () ---@class iterator
+        local _, res = coroutine.resume(co)
+        return res
     end
 end
 
