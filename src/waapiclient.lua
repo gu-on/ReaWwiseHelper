@@ -4,7 +4,7 @@ WaapiClient = Object:extend()
 
 ---@param ip string?
 ---@param port integer?
----@param autoConnect boolean?
+---@param autoConnect boolean? # if nil, will connect automatically
 ---@return boolean # returns true if connection was successful
 function WaapiClient:new(ip, port, autoConnect)
     self.ip = ip or "127.0.0.1"
@@ -42,28 +42,27 @@ function WaapiClient:Call(command, options, parameters)
     return status, result
 end
 
----@param start string
----@param properties any
----@param types any
+---@private
+---@param start string # Path or id
+---@param properties string[]
+---@param types string[]
 ---@return JsonMap[]?
 function WaapiClient:WalkDepthFirst(start, properties, types)
-    local options = JsonMap("waql", "\"" .. start .. "\" select children")
+    local options <const> = JsonMap("waql", "\"" .. start .. "\" select children")
+    local parameters <const> = JsonMap("return", JsonArray(properties))
 
-    table.insert(properties, "path")
-    local parameters = JsonMap("return", JsonArray(properties))
-
-    local isValid, result = self:Call("ak.wwise.core.object.get", options, parameters)
+    local isValid <const>, result <const> = self:Call("ak.wwise.core.object.get", options, parameters)
 
     if not isValid then return nil end
 
-    local objects = result:GetJsonMapTable("return")
-
-    for _, object in pairs(objects) do
+    for _, object in pairs(result:GetJsonMapTable("return")) do
         local items = {}
         for _, property in pairs(properties) do
             items[property] = object:GetString(property)
         end
-        coroutine.yield(items)
+        if table.isempty(types) or table.contains(types, items.type) then
+            coroutine.yield(items)
+        end
         self:WalkDepthFirst(items.id, properties, types)
     end
 
@@ -71,22 +70,40 @@ function WaapiClient:WalkDepthFirst(start, properties, types)
 end
 
 ---@param start string # start path or guid
----@param properties string[]|nil # properties to get
----@param types string[]|nil # object types to respond to, e.g. "Event", "Sound", etc.
+---@param properties string|string[]|nil # properties to get
+---@param types string|string[]|nil # object types to respond to, e.g. "Event", "Sound", etc.
+---@return iterator
 function WaapiClient:WalkProject(start, properties, types)
-    properties = properties or {'id', "type"}
-
     if not self.isConnected then
         error("Waapi client is not connected")
     end
 
-    local co = coroutine.create(function ()
-        self:WalkDepthFirst(start, properties, types)
-    end)
+    do                      -- clean up properties
+        if not properties then
+            properties = {} -- ensure table
+        elseif type(properties) ~= "table" then
+            assert(type(properties) == "string", "If providing a single arg, only 'string' is allowed")
+            properties = { properties } -- ensure table
+        end
 
-    return function () ---@class iterator
-        local _, res = coroutine.resume(co)
-        return res
+        table.insertunique(properties, "id")
+        table.insertunique(properties, "type")
+    end
+
+    do
+        -- clean up types
+        if not types then
+            types = {} -- ensure table
+        elseif type(types) ~= "table" then
+            assert(type(types) == "string", "If providing a single arg, only 'string' is allowed")
+            types = { types } -- ensure table
+        end
+    end
+
+    local co = coroutine.create(function() self:WalkDepthFirst(start, properties, types) end)
+
+    return function() ---@type iterator
+        return select(2, coroutine.resume(co))
     end
 end
 
