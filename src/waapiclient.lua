@@ -47,10 +47,7 @@ end
 ---@param types any
 ---@return JsonMap[]?
 function WaapiClient:WalkDepthFirst(start, properties, types)
-    local options = JsonMap()
-    local argument = start:sub(1, 1) == "\\" and "path" or "id"
-    options:Set("from", JsonMap(argument, JsonArray(start)))
-    options:Set("transform", JsonArray(JsonMap("select", JsonArray("children"))))
+    local options = JsonMap("waql", "\"" .. start .. "\" select children")
 
     table.insert(properties, "path")
     local parameters = JsonMap("return", JsonArray(properties))
@@ -60,13 +57,18 @@ function WaapiClient:WalkDepthFirst(start, properties, types)
     if not isValid then return nil end
 
     local objects = result:GetJsonMapTable("return")
+    -- reaper.ShowConsoleMsg(("%s\n"):format(#objects))
 
-    local paths = {}
     for _, object in pairs(objects) do
-        table.insert(paths, object:GetString("path"))
+        local items = {}
+        for _, property in pairs(properties) do
+            items[property] = object:GetString(property)
+        end
+        coroutine.yield(items)
+        self:WalkDepthFirst(items.id, properties, types)
     end
 
-    return paths
+    return nil
 end
 
 ---@param start string # start path or guid
@@ -79,12 +81,19 @@ function WaapiClient:WalkProject(start, properties, types)
         error("Waapi client is not connected")
     end
 
-    local result = self:WalkDepthFirst(start, properties, types)
+    local co = coroutine.create(function ()
+        self:WalkDepthFirst(start, properties, types)
+    end)
 
-    if not result then return end
+    for i = 1, 20, 1 do
+        local rv, val = coroutine.resume(co)
+        if rv then
+            reaper.ShowConsoleMsg(("%s %s %s\n"):format(val.id, val.path, val.type))
+        end
+        -- if not result then break end
 
-    for _, object in pairs(result) do
-        reaper.ShowConsoleMsg(("%s"):format(object))
+        -- reaper.ShowConsoleMsg(("%s\n"):format(result.id))
+        -- obj = result.id
     end
 end
 
