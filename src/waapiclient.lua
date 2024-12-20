@@ -57,7 +57,6 @@ function WaapiClient:WalkDepthFirst(start, properties, types)
     if not isValid then return nil end
 
     local objects = result:GetJsonMapTable("return")
-    -- reaper.ShowConsoleMsg(("%s\n"):format(#objects))
 
     for _, object in pairs(objects) do
         local items = {}
