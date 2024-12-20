@@ -5,7 +5,7 @@ package.path = package.path .. ';'
     .. debug.getinfo(1).source:match("@?(.*[\\|/])") .. '/3rd/?.lua' .. ";"
 
 Object = require('classic')
+Helpers = require('helpers')
 WaapiClient = require('waapiclient')
 JsonArray = require('jsonarray')
 JsonMap = require('jsonmap')
-Helpers = require('helpers')

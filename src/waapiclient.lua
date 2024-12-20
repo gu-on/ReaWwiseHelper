@@ -60,13 +60,11 @@ function WaapiClient:WalkDepthFirst(start, properties, types)
         for _, property in pairs(properties) do
             items[property] = object:GetString(property)
         end
-        if table.isempty(types) or table.contains(types, items.type) then
+        if table.isempty(types) --[[not specified, so get all]] or table.contains(types, items.type) then
             coroutine.yield(items)
         end
         self:WalkDepthFirst(items.id, properties, types)
     end
-
-    return nil
 end
 
 ---@param start string # start path or guid
