@@ -2,6 +2,10 @@
 ---@operator call: WaapiClient
 WaapiClient = Object:extend()
 
+---@alias AK_Type AK_Array|AK_Map|AK_Variant # Wwise-specific types
+---@alias literal string|number|boolean # Lua literals
+---@alias JsonType JsonArray|JsonMap # WaapiHelper Json types
+
 ---@param ip string?
 ---@param port integer?
 ---@param autoConnect boolean? # if nil, will connect automatically
@@ -19,17 +23,25 @@ function WaapiClient:__close()
     self:Close()
 end
 
+---Connects to waapi
+---@return boolean # Whether connection was successful
 function WaapiClient:Connect()
     return reaper.AK_Waapi_Connect(self.ip, self.port)
 end
 
+---Disconnect from waapi
+function WaapiClient:Disconnect()
+    reaper.AK_Waapi_Disconnect()
+end
+
+---Clear all Wwise objects referenced by pointers
 function WaapiClient:Clear()
     reaper.AK_AkJson_ClearAll()
 end
 
 function WaapiClient:Close()
     self:Clear()
-    reaper.AK_Waapi_Disconnect()
+    self:Disconnect()
 end
 
 ---@param command waapi_uri # commands

@@ -1,6 +1,9 @@
 ---@class JsonArray : Object
----@field id AK_Array
----@operator call: JsonArray
+---@field id AK_Array # Wraps pointer
+---@overload fun() : JsonArray Creates a blank array
+---@overload fun(t: table) : JsonArray Automatically fills array with data provided
+---@overload fun(AK_Array) : JsonArray Provides a wrapper over existing AK_Array
+---@operator call : JsonArray
 JsonArray = Object:extend()
 
 function JsonArray:new(...)
@@ -34,12 +37,9 @@ end
 function JsonArray:Add(entry)
     local switch <const> = {
         ['string'] = function() return reaper.AK_AkVariant_String(entry) end,
-        ['number'] = function()
-            return
-                math.tointeger(entry) and
+        ['number'] = function() return math.tointeger(entry) and
                 reaper.AK_AkVariant_Int(entry) or
-                reaper.AK_AkVariant_Double(entry)
-        end,
+                reaper.AK_AkVariant_Double(entry) end,
         ['boolean'] = function() return reaper.AK_AkVariant_Bool(entry) end,
         ['default'] = function() return nil end
     }
@@ -51,7 +51,7 @@ function JsonArray:Add(entry)
 end
 
 ---@param index integer
----@return AK_Array|AK_Map|AK_Variant
+---@return AK_Type
 function JsonArray:Get(index)
     return reaper.AK_AkJson_Array_Get(self.id, index)
 end
@@ -60,7 +60,8 @@ end
 ---@param index integer
 ---@return JsonMap
 function JsonArray:GetJsonMap(index)
-    return JsonMap(self:Get(index))
+    local var <const> = self:Get(index) ---@cast var AK_Map
+    return JsonMap(var)
 end
 
 ---@return integer

@@ -1,10 +1,12 @@
 ---@class JsonMap
----@field id AK_Map
----@field keys string[]
+---@field id AK_Map Wraps pointer
+---@field keys string[] Read-only keys of currently held data
+---@overload fun(): JsonMap Creates a blank array
+---@overload fun(map: AK_Map): JsonMap Provides a wrapper over existing ak type
+---@overload fun(key: string, value: any): JsonMap Maps value to key 
 ---@operator call: JsonMap
 JsonMap = Object:extend()
 
----@param ... nil|[string, string]|AK_Array|AK_Map|AK_Variant
 function JsonMap:new(...)
     self.keys = {}
     if ... == nil then
@@ -12,13 +14,13 @@ function JsonMap:new(...)
         return
     end
 
+    -- no way to check if AK type. If type is userdata, rely on real-time checks
     if type(...) == "userdata" then
         self.id = select(1, ...)
         return
     end
 
     self.id = reaper.AK_AkJson_Map()
-
     self:Set(select(1, ...), select(2, ...))
 end
 
@@ -27,7 +29,7 @@ function JsonMap:__tostring()
 end
 
 ---@param key string
----@return AK_Array|AK_Map|AK_Variant
+---@return AK_Type
 function JsonMap:Get(key)
     return reaper.AK_AkJson_Map_Get(self.id, key)
 end
@@ -47,10 +49,12 @@ function JsonMap:GetJsonMapTable(key)
     return t
 end
 
+---Get the JsonMap at the given key
 ---@param key string
 ---@return JsonMap
 function JsonMap:GetJsonMap(key)
-    return JsonMap(self:Get(key))
+    local var <const> = self:Get(key) ---@cast var AK_Map
+    return JsonMap(var)
 end
 
 ---@param key string
@@ -87,21 +91,26 @@ function IsJsonType(value)
 end
 
 ---@param key string
----@param value AK_Array|AK_Map|AK_Variant|JsonArray|JsonMap|string|number|boolean
+---@param value AK_Type|literal|JsonArray|JsonMap
 function JsonMap:Set(key, value)
     table.insertunique(self.keys, key)
+
     if IsJsonType(value) then
         reaper.AK_AkJson_Map_Set(self.id, key, --[[@cast value JsonArray|JsonMap]] value.id)
-    elseif type(value) == "string" then
-        reaper.AK_AkJson_Map_Set(self.id, key, reaper.AK_AkVariant_String(value))
-    elseif type(value) == "number" then
-        reaper.AK_AkJson_Map_Set(self.id, key, math.tointeger(value) --[[@cast value integer]] and reaper.AK_AkVariant_Int(value) or reaper.AK_AkVariant_Double(value))
-    elseif type(value) == "boolean" then
-        reaper.AK_AkJson_Map_Set(self.id, key, reaper.AK_AkVariant_Bool(value))
-    else
-        ---No good way of checking the type at this point, so check Wwise for errors
-        reaper.AK_AkJson_Map_Set(self.id, key, --[[@cast value AK_Array|AK_Map|AK_Variant]] value)
+        return
     end
+
+    local switch <const> = {
+        ['string'] = function() return reaper.AK_AkVariant_String(--[[@cast value string]] value) end,
+        ['number'] = function() return math.tointeger(value) and
+                reaper.AK_AkVariant_Int(--[[@cast value integer]] value) or
+                reaper.AK_AkVariant_Double(--[[@cast value number]] value) end,
+        ['boolean'] = function() return reaper.AK_AkVariant_Bool(--[[@cast value boolean]] value) end,
+        ['default'] = function() return --[[@cast value AK_Variant]] value end
+    }
+
+    local var = (switch[type(value)] or switch['default'])()
+    reaper.AK_AkJson_Map_Set(self.id, key, var)
 end
 
 return JsonMap
