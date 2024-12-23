@@ -4,7 +4,7 @@ require('reawwisehelper')
 
 local client <close> = WaapiClient()
 if client then
-    for obj in client:WalkProject("\\Actor-Mixer Hierarchy\\Default Work Unit", "name", "Sound") do
+    for obj in client:WalkProject("\\Actor-Mixer Hierarchy", "name", "Sound") do
         reaper.ShowConsoleMsg(("%s\n"):format(obj.name))
     end
 end
