@@ -1,0 +1,212 @@
+---@alias WwiseAuthoringCommandIdentifiers
+---| "ActivateNextFloatingView" # Activates the next floating view.
+---| "ActivatePreviousFloatingView" # Activates the previous floating view.
+---| "CheckProjectFiles" # Scans for Project and Work Unit files that have changed on disk.
+---| "CloseCurrentObjectTab" # Close the current object tab
+---| "CloseObjectTabsToTheRight" # Close the object tabs to the right
+---| "CloseOtherObjectTabs" # Close the other object tabs
+---| "CloseProject" # Closes the project.
+---| "CloseView" # Closes the active view.
+---| "Convert" # Shows the Convert dialog for the specified objects.
+---| "ConvertAllPlatform" # Converts the specified objects on all platforms.
+---| "ConvertCurrentPlatform" # Converts the specified objects on the specified platform. If not specified, it uses the current platform or current selected objects.
+---| "ConvertSFXToVoice" # Converts the specified objects to Sound Voice objects.
+---| "ConvertToSoundSFX" # Converts the specified objects to Sound SFX objects.
+---| "CopyGUIDsPathsToClipboard" # Copies the unique IDs (GUID) of the specified objects to clipboard.
+---| "CopyPathsToClipboard" # Copies the Wwise project paths of the specified objects to clipboard.
+---| "CopyShortIDsToClipboard" # Copies the short IDs (unsigned 32 bit) of the specified objects to clipboard.
+---| "CopyWAQLToClipboard" # Generates a WAQL query with the specified object paths and copies it to clipboard.
+---| "CreateInGAC" # Creates the associated Nuendo objects for the specified objects using Game Audio Connect.
+---| "CreateNewSoundbank" # Creates a new SoundBank.
+---| "DetachCurrentObjectTab" # Detach the current object tab
+---| "DuplicateCurrentObjectTab" # Duplicate the current object tab
+---| "EditUserPreferences" # Shows the User Preferences dialog for editing.
+---| "ExpandCollapsePropertyEditorLeftInObjectTab" # Expand or Collapse the Property Editor on the left side bar of the latest object tab.
+---| "ExpandCollapsePropertyEditorRightInObjectTab" # Expand or Collapse the Property Editor on the right side bar of the latest object tab.
+---| "FindInProjectExplorerNewPinnedView" # Finds the specified object in the Project Explorer (New Pinned View).
+---| "FindInProjectExplorerNoSyncGroup" # Finds the specified object in the Project Explorer (No Sync Group). Deprecated, see FindInProjectExplorerNewPinnedView.
+---| "FindInProjectExplorerSelectionChannel1" # Finds the specified object in the Project Explorer (Selection Channel 1).
+---| "FindInProjectExplorerSelectionChannel2" # Finds the specified object in the Project Explorer (Selection Channel 2).
+---| "FindInProjectExplorerSelectionChannel3" # Finds the specified object in the Project Explorer (Selection Channel 3).
+---| "FindInProjectExplorerSelectionChannel4" # Finds the specified object in the Project Explorer (Selection Channel 4).
+---| "FindInProjectExplorerSyncGroup1" # Finds the specified object in the Project Explorer (Sync Group 1). Deprecated, see FindInProjectExplorerSelectionChannel1.
+---| "FindInProjectExplorerSyncGroup2" # Finds the specified object in the Project Explorer (Sync Group 2). Deprecated, see FindInProjectExplorerSelectionChannel2.
+---| "FindInProjectExplorerSyncGroup3" # Finds the specified object in the Project Explorer (Sync Group 3). Deprecated, see FindInProjectExplorerSelectionChannel3.
+---| "FindInProjectExplorerSyncGroup4" # Finds the specified object in the Project Explorer (Sync Group 4). Deprecated, see FindInProjectExplorerSelectionChannel4.
+---| "FocusNext" # Focuses the next control in the current view.
+---| "FocusPrevious" # Focuses the previous control in the current view.
+---| "ForceSaveProject" # Makes all Work Units dirty and saves the project.
+---| "GenerateAllSoundbanksAllPlatforms" # Generates all SoundBanks on all platforms.
+---| "GenerateAllSoundbanksAllPlatformsAutoClose" # Generates all SoundBanks on all platforms (Progress dialog is closed automatically at the end of operation).
+---| "GenerateAllSoundbanksCurrentPlatform" # Generates all SoundBanks on the specified platform. If not specified, it uses the current platform.
+---| "GenerateAllSoundbanksCurrentPlatformAutoClose" # Generates all SoundBanks on the specified platform. If not specified, it uses the current platform (Progress dialog is closed automatically at the end of operation).
+---| "GenerateSelectedSoundbanksAllPlatforms" # Generates the specified SoundBank objects on all platforms.
+---| "GenerateSelectedSoundbanksAllPlatformsAutoClose" # Generates the specified SoundBank objects on all platforms (Progress dialog is closed automatically at the end of operation).
+---| "GenerateSelectedSoundbanksCurrentPlatform" # Generates the specified SoundBank objects on the specified platform. If not specified, it uses the current platform or current selected objects.
+---| "GenerateSelectedSoundbanksCurrentPlatformAutoClose" # Generates the specified SoundBank objects on the specified platform. If not specified, it uses the current platform or current selected objects (Progress dialog is closed automatically at the end of operation).
+---| "GenerateSoundbanksWithCurrentSettings" # Generates SoundBanks using the current SoundBank Manager settings (Progress dialog is closed automatically at the end of operation).
+---| "Help" # Shows the Wwise Help.
+---| "Inspect" # Inspects the specified objects.
+---| "InspectNext" # Inspects the next object inspected.
+---| "InspectParent" # Inspects the parent of the currently inspected object.
+---| "InspectPrevious" # Inspects the previous object inspected.
+---| "KeepOpenCurrentObjectTab" # Keep Open the current object tab
+---| "LoadPreset" # Shows the Load Preset dialog for the active view.
+---| "LoadThemeClassic" # Loads the classic theme.
+---| "LoadThemeDark" # Loads the dark theme.
+---| "LoadThemeLight" # Loads the light theme.
+---| "LoadUnloadedWorkUnits" # Loads currently unloaded Work Units.
+---| "MaximizeView" # Maximizes the active view.
+---| "MinimizeView" # Minimizes the active view.
+---| "MoveCurrentObjectTabToTheLeft" # Move the current tab to the left
+---| "MoveCurrentObjectTabToTheRight" # Move the current tab to the right
+---| "Mute" # Mutes the specified objects, or current selection if no object specified.
+---| "NewProject" # Shows the New Project dialog.
+---| "NextObjectTab" # Natigate to the next object tab.
+---| "NextPerfFrame" # Goes to next audio frame in Performance Graph.
+---| "OpenContainingFolderSoundbank" # Opens a Windows Explorer window on the Containing folder of specified objects's SoundBank files.
+---| "OpenContainingFolderWAV" # Opens a Windows Explorer window on the Containing folder of specified objects's wav files.
+---| "OpenContainingFolderWorkUnit" # Opens a Windows Explorer window on the Containing folder of specified objects's Work Units.
+---| "OpenInExternalEditor" # Opens the specified objects in the first (index 0) External Editor.
+---| "OpenInExternalEditor1" # Opens the specified objects in the second (index 1) External Editor.
+---| "OpenInExternalEditor2" # Opens the specified objects in the third (index 2) External Editor.
+---| "OpenInExternalEditor3" # Opens the specified objects in the fourth (index 3) External Editor.
+---| "OpenInExternalEditor4" # Opens the specified objects in the fifth (index 4) External Editor.
+---| "OpenInGAC" # Opens the specified objects in Nuendo using Game Audio Connect.
+---| "OpenInNewTab" # Inspects the specified objects.
+---| "OpenInNewWindow" # Inspects the specified objects in a new window.
+---| "OpenInWwiseWaveViewer" # Opens specified objects in the Wwise Wave Viewer.
+---| "OpenProject" # Shows the Open Project dialog.
+---| "OpenPropertyEditorFavorites" # Open the Property Editor Favorites
+---| "OpenRecycled" # Open the object in recycled mode.
+---| "PinView" # Pins the active view.
+---| "PopoutObjectTabPrimaryView" # Popup the current primary editor as a floating view.
+---| "PopoutObjectTabSecondaryView" # Popup the current secondary editor as a floating view.
+---| "PreviousObjectTab" # Natigate to the previous object tab.
+---| "PreviousPerfFrame" # Goes to previous audio frame in Performance Graph.
+---| "ProfilerFilterClearAll" # Clears all filters.
+---| "ProfilerFilterClearCurrentView" # Clears the profiler filter of the current view.
+---| "ProfilerFilterExcludeObjectNameFromCurrent" # Adds the name of the selected object as an exclude to the filter text of the current view.
+---| "ProfilerFilterPromoteCurrentToAll" # Copies the profiler filter of the current view to all other filters.
+---| "ProfilerFilterSetNameToCurrent" # Sets the name of the selected object as the filter text of the current view.
+---| "ProfilerFilterSetPipelineID" # Sets the profiler text filter to match a specific pipeline ID.
+---| "ProfilerFilterSetSelectedObjectToCurrent" # Sets the currently selected object in the profiler filter of the current view.
+---| "ProfilerFilterToggleCurrentMuteSolo" # Toggles ON/OFF the mute/solo filtering in the current view.
+---| "ProfilerFilterToggleCurrentShowNothingWhenEmpty" # Toggles ON/OFF the Show Nothing when filter is empty.
+---| "ProfilerFilterToggleLocalGlobal" # Toggles the profiler filter of the current view between link and unlink modes.
+---| "Redo" # Redoes the last undone operation.
+---| "ReloadCommandAddons" # Reloads all the custom command files in all the corresponding directories.
+---| "ReloadCurrentTheme" # Reloads the current user interface theme from disk. This is useful when implementing new themes.
+---| "ResetAllMutes" # Resets all mutes currently active.
+---| "ResetAllSolos" # Resets all solos currently active.
+---| "RestoreView" # Restores the active view.
+---| "SaveAllCounters" # Dumps the Performance Counters to a file.
+---| "SaveCaptureSession" # Saves the profiling session.
+---| "SavePreset" # Shows the Load Preset dialog for the active view.
+---| "SaveProject" # Saves the project.
+---| "Search" # Puts the focus on the search box.
+---| "SearchCommands" # Puts the focus on the search box and enables the command search mode.
+---| "SearchInCtrl" # Opens the search box in the currently active control.
+---| "SearchInCurrentView" # Searches in the Current View if it has a search field.
+---| "SearchInProjectExplorer" # Searches in the Project Explorer (first available view).
+---| "SearchInProjectExplorerNewPinnedView" # Searches in the Project Explorer (New Pinned View).
+---| "SearchInProjectExplorerSelectionChannel1" # Searches in the Project Explorer (Selection Channel 1).
+---| "SearchInProjectExplorerSelectionChannel2" # Searches in the Project Explorer (Selection Channel 2).
+---| "SearchInProjectExplorerSelectionChannel3" # Searches in the Project Explorer (Selection Channel 3).
+---| "SearchInProjectExplorerSelectionChannel4" # Searches in the Project Explorer (Selection Channel 4).
+---| "SearchInPropertyEditor" # Searches for property names or values in the Property Editor.
+---| "SelectOnlineDocumentation" # Selects CHM file as a documentation source.
+---| "SetColor" # Shows the Color Picker dialog for the specific objects.
+---| "SetPropertySheetSplitModeColumn" # Sets the property sheet split mode to columns.
+---| "SetPropertySheetSplitModeNo" # Sets the property sheet split mode to not split.
+---| "SetPropertySheetSplitModeRow" # Sets the property sheet split mode to rows.
+---| "ShowAudioFileCacheClearDialog" # Shows the Clear Audio File Cache dialog.
+---| "ShowAudioFilesConversionDialog" # Shows the Audio File Conversion dialog.
+---| "ShowAudioFilesImporter" # Shows the Audio File Importer dialog.
+---| "ShowAudioPreferences" # Shows the Audio Preferences dialog.
+---| "ShowBatchRename" # Shows the Batch Rename View, with the specified objects.
+---| "ShowBugReport" # Shows the Bug Report page.
+---| "ShowContactAK" # Shows <a class="el" href="../2024.1.1_8691/?source=SDK&id=namespace_a_k.html" title="Definition of data structures for AkAudioObject.">AK</a>'s Contact Us page.
+---| "ShowContextualHelp" # Shows the Contextual Help View for a specified property.
+---| "ShowControlSurfacesDlg" # Shows the Control Surfaces Settings dialog.
+---| "ShowDefaultObjectValues" # Shows the Default Object Values dialog.
+---| "ShowDetails" # Shows the details view with the specified objects.
+---| "ShowFileManager" # Shows the File Manager dialog.
+---| "ShowGACSettings" # Shows the Nuendo Game Audio Connect setting.
+---| "ShowGameObjectsVoiceExplorer" # Focuses the Voice Explorer on the specified game object(s).
+---| "ShowKeyboardShortcuts" # Shows the Keyboard Shortcuts dialog.
+---| "ShowLanguages" # Shows the Language Manager dialog.
+---| "ShowLegalNotices" # Shows the legal notices dialog.
+---| "ShowLicenseMgr" # Shows the License Manager dialog.
+---| "ShowListView" # Shows the List View on the specified objects.
+---| "ShowMultiEditor" # Shows the Multi Editor view on the specified objects.
+---| "ShowObstructionOcclusionSettings" # Shows the Project Settings dialog on the Obstruction/Occlusion tab.
+---| "ShowPasteProperties" # Shows the Paste Properties view on the specified object.
+---| "ShowPlatformManager" # Shows the Platform Manager dialog.
+---| "ShowProfilerSettings" # Shows the Profiler Settings dialog.
+---| "ShowProjectSettings" # Shows the Project Settings dialog.
+---| "ShowPropertyHelp" # Shows the Property Help View for a specified property. Deprecated, see ShowContextualHelp.
+---| "ShowReferenceView" # Shows the Reference View with the specified objects.
+---| "ShowRemoteConnections" # Shows the Remote Connections dialog.
+---| "ShowSchematicView" # Shows the Schematic View on the specified objects.
+---| "ShowSoundBankDefinitionImporter" # Shows the Sound Bank Definition Importer dialog.
+---| "ShowSoundbankSettings" # Shows the Project settings dialog, SoundBanks tab.
+---| "ShowSourceEditor" # Shows the Source Editor on the specified objects.
+---| "ShowSplashScreen" # Shows the initial Wwise loading screen (with the current software version).
+---| "ShowUserPreferences" # Shows the User Preferences dialog.
+---| "ShowUserProjectSettings" # Deprecated, see ShowDefaultObjectValues.
+---| "ShowUserSoundbankSettings" # Shows the user SoundBank settings dialog.
+---| "ShowViewSettings" # Shows the view settings for the active view.
+---| "ShowVoiceAssetsImporter" # Shows the Voice Asset Importer dialog.
+---| "ShowVoiceInspector" # Shows the Voice Inspector on the specified object.
+---| "ShowVoicesVoiceExplorer" # Focuses the Voice Explorer on the specified voice(s).
+---| "ShowWwiseHelp" # Shows the Wwise Help.
+---| "ShowWwiseKnowledgeBase" # Shows the Wwise Community Q&A.
+---| "ShowWwiseSDKDocumentation" # Shows the Wwise SDK documentation.
+---| "Solo" # Solos the specified objects, or current selection if no object specified.
+---| "SourceControlAddWAV" # Calls the Add command for the wav files associated with the specified objects on the Source Control plug-in (Perforce, SVN, etc).
+---| "SourceControlAddWWU" # Calls the Add command for the Work Units associated with the specified objects on the Source Control plug-in (Perforce, SVN, etc).
+---| "SourceControlCheckoutWAV" # Calls the Checkout command for the wav files associated with the specified objects on the Source Control plug-in (Perforce, SVN, etc).
+---| "SourceControlCheckoutWWU" # Calls the Checkout command for the Work Units associated with the specified objects on the Source Control plug-in (Perforce, SVN, etc).
+---| "SourceControlCommitWAV" # Calls the Commit command for the wav files associated with the specified objects on the Source Control plug-in (Perforce, SVN, etc).
+---| "SourceControlCommitWWU" # Calls the Commit/Submit command for the Work Units associated with the specified objects on the Source Control plug-in (Perforce, SVN, etc).
+---| "SourceControlDiffWAV" # Calls the Diff command for the wav files associated with the specified objects on the Source Control plug-in (Perforce, SVN, etc).
+---| "SourceControlDiffWWU" # Calls the Diff command for the Work Units associated with the specified objects on the Source Control plug-in (Perforce, SVN, etc).
+---| "SourceControlRefreshIcons" # Refreshes the project status and the Source Control icons on Work Units.
+---| "SourceControlRevertWAV" # Calls the Revert command for the wav files associated with the specified objects on the Source Control plug-in (Perforce, SVN, etc).
+---| "SourceControlRevertWWU" # Calls the Revert command for the Work Units associated with the specified objects on the Source Control plug-in (Perforce, SVN, etc).
+---| "SourceControlUpdateWAV" # Calls the Update command for the wav files associated with the specified objects on the Source Control plug-in (Perforce, SVN, etc).
+---| "SourceControlUpdateWWU" # Calls the Update command for the Work Units associated with the specified objects on the Source Control plug-in (Perforce, SVN, etc).
+---| "SplitCurrentTabToTheRight" # Split the current tab, creating a new tab panel to the right.
+---| "StartCapture" # Starts a profiling capture, does nothing if already started.
+---| "StartStopCapture" # Starts a profiling capture, or stops it if already started.
+---| "StopCapture" # Stops a profiling capture, does nothing if already stopped.
+---| "ToggleExpandCollapse" # Toggles Expand/Collapse for the active floating view.
+---| "ToggleFollowCapture" # Toggles the Show Live Data button in the toolbar.
+---| "ToggleFollowObjectSelectionInProjectExplorer" # Toggles the automatic following of object selection in Project Explorer.
+---| "ToggleMaximizeObjectTabPrimaryView" # Minimize the current default view of the object tabs
+---| "ToggleMaximizeObjectTabSecondaryView" # Maximize the current default view of the object tabs
+---| "ToggleOpenNewTabOnDoubleClick" # Toggles the opening of a new object tab when double-clicking an object.
+---| "TransportDisableMonitor" # Disables the inclusion button in the Transport Control.
+---| "TransportDisableOriginal" # Disables the Original button in the Transport Control.
+---| "TransportDisplayRTPC" # Switches the Transport Control to display Game Parameters.
+---| "TransportDisplayStates" # Switches the Transport Control to display States.
+---| "TransportDisplaySwitches" # Switches the Transport Control to display Switches.
+---| "TransportDisplayTriggers" # Switches the Transport Control to display Triggers.
+---| "TransportEnableMonitor" # Enables the inclusion button in the Transport Control.
+---| "TransportEnableOriginal" # Enables the Original button in the Transport Control.
+---| "TransportPause" # Pauses the object currently in playback in the Transport Control.
+---| "TransportPin" # Pins or unpins the Transport Control currently loaded object.
+---| "TransportPinSelected" # Pins the specified object, or current selection if no object is specified, to the Transport Control.
+---| "TransportPlayDirectly" # Plays the object currently loaded in the Transport Control by bypassing properties that have an influence on the sound, such as the volume.
+---| "TransportPlayStop" # Plays the object currently loaded in the Transport Control. If the playback is in progress, it stops the playback.
+---| "TransportReset" # Resets the Transport Control playback and internal states.
+---| "TransportToggleMonitor" # Toggles the inclusion button in the Transport Control.
+---| "TransportToggleOriginal" # Toggles the Original button in the Transport Control.
+---| "Undo" # Undoes the last operation in the queue.
+---| "UseAudioOutputSystem5" # Selects 5.1 as audio output system.
+---| "UseAudioOutputSystem7" # Selects 7.1 as audio output system.
+---| "UseAudioOutputSystemDefault" # Selects default audio output system.
+---| "UseAudioOutputSystemStereoHeadphones" # Selects stereo headphones as audio output system.
+---| "UseAudioOutputSystemStereoSpeakers" # Selects stereo speakers as audio output system.
+---| "UseOnlineDocumentation" # Selects Wwise website as a documentation source.

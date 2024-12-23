@@ -1,10 +1,12 @@
 ---@class JsonMap
 ---@field id AK_Map
+---@field keys string[]
 ---@operator call: JsonMap
 JsonMap = Object:extend()
 
 ---@param ... nil|[string, string]|AK_Array|AK_Map|AK_Variant
 function JsonMap:new(...)
+    self.keys = {}
     if ... == nil then
         self.id = reaper.AK_AkJson_Map()
         return
@@ -85,16 +87,20 @@ function IsJsonType(value)
 end
 
 ---@param key string
----@param value AK_Array|AK_Map|AK_Variant|JsonArray|JsonMap
+---@param value AK_Array|AK_Map|AK_Variant|JsonArray|JsonMap|string|number|boolean
 function JsonMap:Set(key, value)
+    table.insertunique(self.keys, key)
     if IsJsonType(value) then
-        ---@cast value JsonArray|JsonMap
-        reaper.AK_AkJson_Map_Set(self.id, key, value.id)
+        reaper.AK_AkJson_Map_Set(self.id, key, --[[@cast value JsonArray|JsonMap]] value.id)
     elseif type(value) == "string" then
         reaper.AK_AkJson_Map_Set(self.id, key, reaper.AK_AkVariant_String(value))
+    elseif type(value) == "number" then
+        reaper.AK_AkJson_Map_Set(self.id, key, math.tointeger(value) --[[@cast value integer]] and reaper.AK_AkVariant_Int(value) or reaper.AK_AkVariant_Double(value))
+    elseif type(value) == "boolean" then
+        reaper.AK_AkJson_Map_Set(self.id, key, reaper.AK_AkVariant_Bool(value))
     else
-        ---@cast value AK_Array|AK_Map|AK_Variant
-        reaper.AK_AkJson_Map_Set(self.id, key, value)
+        ---No good way of checking the type at this point, so check Wwise for errors
+        reaper.AK_AkJson_Map_Set(self.id, key, --[[@cast value AK_Array|AK_Map|AK_Variant]] value)
     end
 end
 

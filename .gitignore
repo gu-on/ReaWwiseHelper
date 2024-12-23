@@ -1,3 +1,6 @@
 /.vscode
 
 *.tmp
+
+# Using to test
+WIP.lua

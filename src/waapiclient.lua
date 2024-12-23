@@ -42,6 +42,26 @@ function WaapiClient:Call(command, options, parameters)
     return status, result
 end
 
+---@param command WwiseAuthoringCommandIdentifiers
+---@param arguments JsonMap|JsonMap[]
+function WaapiClient:ExecuteCommand(command, arguments)
+    local options = JsonMap("command", command)
+    if arguments then
+        if type(arguments) == "table" then
+            for _, argument in pairs(arguments) do
+                for _, key in pairs(argument.keys) do
+                    options:Set(key, argument:Get(key))
+                end
+            end
+        else
+            for _, key in pairs(arguments.keys) do
+                options:Set(key, arguments:Get(key))
+            end
+        end
+    end
+    self:Call("ak.wwise.ui.commands.execute", options, JsonMap())
+end
+
 ---@private
 ---@param start string # Path or id
 ---@param properties string[]
