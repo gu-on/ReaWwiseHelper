@@ -6,7 +6,7 @@
 -- @about
 --   Prints all Sounds under Actor-Mixer to Reaper console
 
-package.path = package.path .. ';' .. debug.getinfo(1).source:match("@?(.*[\\|/])") .. '/Helpers/?.lua'
+package.path = package.path .. ';' .. debug.getinfo(1).source:match("@?(.*[\\|/])") .. '../Core/?.lua'
 
 require('reawwisehelper')
 

@@ -6,7 +6,7 @@
 -- @about
 --   Mute all selected objects in Wwise
 
-package.path = package.path .. ';' .. debug.getinfo(1).source:match("@?(.*[\\|/])") .. '/Helpers/?.lua'
+package.path = package.path .. ';' .. debug.getinfo(1).source:match("@?(.*[\\|/])") .. '../Core/?.lua'
 
 require('reawwisehelper')
 

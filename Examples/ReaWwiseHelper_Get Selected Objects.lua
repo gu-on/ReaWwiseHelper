@@ -7,7 +7,7 @@
 --   Matches the first example script in https://www.audiokinetic.com/en/blog/waapi-in-reascript-lua-with-reawwise/
 --   Gets selected objects in Wwise and print paths to Reaper console
 
-package.path = package.path .. ';' .. debug.getinfo(1).source:match("@?(.*[\\|/])") .. '/Helpers/?.lua'
+package.path = package.path .. ';' .. debug.getinfo(1).source:match("@?(.*[\\|/])") .. '../Core/?.lua'
 
 require('reawwisehelper')
 
