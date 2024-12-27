@@ -1,3 +1,5 @@
+-- @noindex
+
 ---@alias WwiseAuthoringCommandIdentifiers
 ---| "ActivateNextFloatingView" # Activates the next floating view.
 ---| "ActivatePreviousFloatingView" # Activates the previous floating view.

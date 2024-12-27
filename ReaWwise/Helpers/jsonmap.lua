@@ -1,3 +1,5 @@
+-- @noindex
+
 ---@class JsonMap
 ---@field id AK_Map Wraps pointer
 ---@field keys string[] Read-only keys of currently held data

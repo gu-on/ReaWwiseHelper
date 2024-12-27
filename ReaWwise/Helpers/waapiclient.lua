@@ -1,3 +1,5 @@
+-- @noindex
+
 ---@class WaapiClient : Object
 ---@operator call: WaapiClient
 WaapiClient = Object:extend()

@@ -1,3 +1,11 @@
+-- @description Wwise Mute Selected Objects
+-- @author guonaudio
+-- @version 1.0
+-- @changelog
+--   Initial release
+-- @about
+--   Mute all selected objects in Wwise
+
 package.path = package.path .. ';' .. debug.getinfo(1).source:match("@?(.*[\\|/])") .. '/Helpers/?.lua'
 
 require('reawwisehelper')

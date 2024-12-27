@@ -1,3 +1,5 @@
+-- @noindex
+
 ---@class JsonArray : Object
 ---@field id AK_Array # Wraps pointer
 ---@overload fun() : JsonArray Creates a blank array

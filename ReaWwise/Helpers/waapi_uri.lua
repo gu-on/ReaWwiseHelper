@@ -1,3 +1,5 @@
+-- @noindex
+
 ---@alias waapi_uri
 ---| "ak.soundengine.executeActionOnEvent" # Executes an action on all nodes that are referenced in the specified event in a Play action. See AK::SoundEngine::ExecuteActionOnEvent.
 ---| "ak.soundengine.getState" # Gets the current state of a State Group. When using setState just prior to getState, allow a brief delay (no more than 10ms) for the information to update in the sound engine.

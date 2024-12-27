@@ -1,4 +1,13 @@
----@class iterator
+-- @description ReaWwiseHelper
+-- @author guonaudio
+-- @version 0.1
+-- @provides [nomain] .
+-- @changelog
+--   Initial release
+-- @about
+--   Main library for handling all other required libraries
+
+---@class iterator # 
 
 package.path = package.path .. ';' .. debug.getinfo(1).source:match("@?(.*[\\|/])") .. '?.lua'
 

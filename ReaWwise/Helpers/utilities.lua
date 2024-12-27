@@ -1,3 +1,5 @@
+-- @noindex
+
 ---@param list table
 ---@param value any
 function table.contains(list, value)
