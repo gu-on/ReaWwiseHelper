@@ -1,4 +1,4 @@
-package.path = package.path .. ';' .. debug.getinfo(1).source:match("@?(.*[\\|/])") .. '../3rd/?.lua'
+package.path = package.path .. ';' .. debug.getinfo(1).source:match("@?(.*[\\|/])") .. '?.lua'
 local argparse = require "argparse"
 
 local parser = argparse("WAAPI Python to Lua", "Converts waapi_uri.py provided in Wwise SDK to a file that can be used by Lua Language Server")
