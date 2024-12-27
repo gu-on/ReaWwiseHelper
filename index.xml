@@ -1,33 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="ReaWwiseHelper" commit="58a3e39ba95bd0f35846aa1f39aa4cb2574295e1">
-  <metadata>
-    <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+<index version="1" name="ReaWwiseHelper" commit="36b89bf78cf447fd0be0962a7b10533a54bd7a64">
+  <category name="Core">
+    <reapack name="reawwisehelper.lua" type="script" desc="ReaWwiseHelper">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
 {\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
 \widowctrl\hyphauto
 
-{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 ReaPack Repository Template\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 A template for GitHub-hosted ReaPack repositories with automated {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reapack-index"}}{\fldrslt{\ul
-reapack-index
+{\pard \ql \f0 \sa180 \li0 \fi0 Main library for handling all other required libraries\par}
+}
+]]></description>
+      </metadata>
+      <version name="0.1" author="guonaudio" time="2024-12-27T19:26:04Z">
+        <changelog><![CDATA[Initial release]]></changelog>
+        <source>https://github.com/gu-on/ReaWwiseHelper/raw/36b89bf78cf447fd0be0962a7b10533a54bd7a64/Core/reawwisehelper.lua</source>
+        <source file="rwh_classic.lua">https://github.com/gu-on/ReaWwiseHelper/raw/36b89bf78cf447fd0be0962a7b10533a54bd7a64/Core/rwh_classic.lua</source>
+        <source file="rwh_waapiclient.lua">https://github.com/gu-on/ReaWwiseHelper/raw/36b89bf78cf447fd0be0962a7b10533a54bd7a64/Core/rwh_waapiclient.lua</source>
+        <source file="rwh_jsonarray.lua">https://github.com/gu-on/ReaWwiseHelper/raw/36b89bf78cf447fd0be0962a7b10533a54bd7a64/Core/rwh_jsonarray.lua</source>
+        <source file="rwh_jsonmap.lua">https://github.com/gu-on/ReaWwiseHelper/raw/36b89bf78cf447fd0be0962a7b10533a54bd7a64/Core/rwh_jsonmap.lua</source>
+        <source file="rwh_utilities.lua">https://github.com/gu-on/ReaWwiseHelper/raw/36b89bf78cf447fd0be0962a7b10533a54bd7a64/Core/rwh_utilities.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <category name="Examples">
+    <reapack name="ReaWwiseHelper_Get Selected Objects.lua" type="script" desc="Wwise Get Selected Objects">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Matches the first example script in https://www.audiokinetic.com/en/blog/waapi-in-reascript-lua-with-reawwise/ Gets selected objects in Wwise and print paths to Reaper console\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="guonaudio" time="2024-12-27T19:26:04Z">
+        <changelog><![CDATA[Initial release]]></changelog>
+        <source main="main">https://github.com/gu-on/ReaWwiseHelper/raw/36b89bf78cf447fd0be0962a7b10533a54bd7a64/Examples/ReaWwiseHelper_Get%20Selected%20Objects.lua</source>
+      </version>
+    </reapack>
+    <reapack name="ReaWwiseHelper_Mute Selected Objects.lua" type="script" desc="Wwise Mute Selected Objects">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Mute all selected objects in Wwise\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="guonaudio" time="2024-12-27T19:26:04Z">
+        <changelog><![CDATA[Initial release]]></changelog>
+        <source main="main">https://github.com/gu-on/ReaWwiseHelper/raw/36b89bf78cf447fd0be0962a7b10533a54bd7a64/Examples/ReaWwiseHelper_Mute%20Selected%20Objects.lua</source>
+      </version>
+    </reapack>
+    <reapack name="ReaWwiseHelper_Print Sounds in Actor-Mixer Hierarchy.lua" type="script" desc="Wwise Print Sounds in Actor-Mixer Hierarchy">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Prints all Sounds under Actor-Mixer to Reaper console\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="guonaudio" time="2024-12-27T19:26:04Z">
+        <changelog><![CDATA[Initial release]]></changelog>
+        <source main="main">https://github.com/gu-on/ReaWwiseHelper/raw/36b89bf78cf447fd0be0962a7b10533a54bd7a64/Examples/ReaWwiseHelper_Print%20Sounds%20in%20Actor-Mixer%20Hierarchy.lua</source>
+      </version>
+    </reapack>
+  </category>
+  <metadata>
+    <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 \outlinelevel0 \b \fs36 ReaWwise Helper\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 A simple library to OOP-ify the ReaWwise bindings for Lua.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 The code below is provided verbatim from the blog post {\field{\*\fldinst{HYPERLINK "https://www.audiokinetic.com/en/blog/waapi-in-reascript-lua-with-reawwise/"}}{\fldrslt{\ul
+WAAPI in ReaScript Lua with ReaWwise
 }}}
- running from GitHub Actions.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Replace the name of the repository in {\field{\*\fldinst{HYPERLINK "/index.xml"}}{\fldrslt{\ul
-index.xml
-}}}
- when using this template. This will be the name shown in ReaPack.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 \f1 <index version="1" name="Name of your repository here">\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Replace the contents of this file ({\field{\*\fldinst{HYPERLINK "/README.md"}}{\fldrslt{\ul
-README.md
-}}}
-). This will be the text shown when using ReaPack's "About this repository" feature.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 reapack-index looks for package files in subfolders. The folder tree represents the package categories shown in ReaPack.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 Each package file is expected to begin with a metadata header. See {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reapack-index/wiki/Packaging-Documentation"}}{\fldrslt{\ul
-Packaging Documentation
-}}}
- on reapack-index's wiki.\par}
-{\pard \ql \f0 \sa180 \li0 \fi0 The URL to import in ReaPack is {\field{\*\fldinst{HYPERLINK "https://github.com/cfillion/reapack-repository-template/raw/master/index.xml"}}{\fldrslt{\ul
-https://github.com/{\f1 <your username>}/{\f1 <repository name>}/raw/master/index.xml
-}}}
-.\par}
+. The purpose of the script is to output the paths of several objects selected in Wwise.\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 if(reaper.AK_Waapi_Connect("127.0.0.1", 8080)) then\line
+    local fieldsToReturn = reaper.AK_AkJson_Array()\line
+\line
+    reaper.AK_AkJson_Array_Add(fieldsToReturn, reaper.AK_AkVariant_String("path"))\line
+\line
+    local options = reaper.AK_AkJson_Map()\line
+    reaper.AK_AkJson_Map_Set(options, "return", fieldsToReturn)\line
+\line
+    local result = reaper.AK_Waapi_Call("ak.wwise.ui.getSelectedObjects",\line
+      reaper.AK_AkJson_Map(), options)\line
+\line
+    local status = reaper.AK_AkJson_GetStatus(result)\line
+\line
+    if(status) then\line
+      local objects = reaper.AK_AkJson_Map_Get(result, "objects")\line
+      local numObjects = reaper.AK_AkJson_Array_Size(objects)\line
+\line
+      for i=0, numObjects - 1 do\line
+        local item = reaper.AK_AkJson_Array_Get(objects, i)\line
+        local path = reaper.AK_AkJson_Map_Get(item, "path")\line
+        local pathStr = reaper.AK_AkVariant_GetString(path)\line
+        reaper.ShowConsoleMsg(pathStr .. "\\n")\line
+      end\line
+    end\line
+\line
+    reaper.AK_AkJson_ClearAll()\line
+    reaper.AK_Waapi_Disconnect()\line
+  end\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Using the ReaWwise Helper library, the code can instead be condensed to the following:\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 \f1 local client <close> = WaapiClient()\line
+if client then\line
+    local returns = "path"\line
+    local parameters = JsonMap("return", JsonArray(returns))\line
+\line
+    local isValid, result = client:Call("ak.wwise.ui.getSelectedObjects", JsonMap(), parameters)\line
+\line
+    if isValid then\line
+        local objects = result:GetJsonMapTable("objects")\line
+        for _, object in pairs(objects) do\line
+            reaper.ShowConsoleMsg(object:GetString(returns))\line
+        end\line
+    end\line
+end\par}
 }
 ]]></description>
   </metadata>
