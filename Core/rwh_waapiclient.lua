@@ -47,17 +47,19 @@ function WaapiClient:Close()
 end
 
 ---@param command waapi_uri # commands
----@param options JsonMap # arguments
----@param parameters JsonMap # options
+---@param options JsonMap? # arguments
+---@param parameters JsonMap? # options
 ---@return boolean, JsonMap
 function WaapiClient:Call(command, options, parameters)
+    options = options or JsonMap()
+    parameters = parameters or JsonMap()
     local result = JsonMap(reaper.AK_Waapi_Call(command, options.id, parameters.id))
     local status = reaper.AK_AkJson_GetStatus(result.id)
     return status, result
 end
 
 ---@param command WwiseAuthoringCommandIdentifiers
----@param arguments JsonMap|JsonMap[]
+---@param arguments JsonMap|JsonMap[]|nil
 function WaapiClient:ExecuteCommand(command, arguments)
     local options = JsonMap("command", command)
     if arguments then
@@ -72,6 +74,8 @@ function WaapiClient:ExecuteCommand(command, arguments)
                 options:Set(key, arguments:Get(key))
             end
         end
+    else
+        arguments = JsonMap()
     end
     self:Call("ak.wwise.ui.commands.execute", options, JsonMap())
 end
@@ -103,7 +107,7 @@ end
 
 ---@param start string # start path or guid
 ---@param properties string|string[]|nil # properties to get
----@param types string|string[]|nil # object types to respond to, e.g. "Event", "Sound", etc.
+---@param types string|string[]|nil # object types to respond to, e.g. "Event", "Sound", etc. If nil, gets all types
 ---@return iterator
 function WaapiClient:WalkProject(start, properties, types)
     if not self.isConnected then
@@ -136,6 +140,30 @@ function WaapiClient:WalkProject(start, properties, types)
     return function() ---@type iterator
         return select(2, coroutine.resume(co))
     end
+end
+
+---@param object JsonMap
+function WaapiClient:DeleteObject(object)
+    self:Call("ak.wwise.core.object.delete", object)
+end
+
+function WaapiClient:UndoGroupBegin()
+    self:Call("ak.wwise.core.undo.beginGroup")
+end
+
+---@param undoMessage string Message to display in Wwise after undo is performed
+function WaapiClient:UndoGroupEnd(undoMessage)
+    undoMessage = undoMessage or "Performed grouped WAAPI call"
+    local arguments <const> = JsonMap("displayName", undoMessage)
+    self:Call("ak.wwise.core.undo.endGroup", arguments)
+end
+
+function WaapiClient:Undo()
+    self:ExecuteCommand("Undo")
+end
+
+function WaapiClient:Redo()
+    self:ExecuteCommand("Redo")
 end
 
 return WaapiClient

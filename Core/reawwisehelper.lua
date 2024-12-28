@@ -1,6 +1,6 @@
 -- @description ReaWwiseHelper
 -- @author guonaudio
--- @version 0.1
+-- @version 0.2.0
 -- @provides 
 --   [nomain] .
 --   [nomain] rwh_classic.lua
@@ -9,7 +9,7 @@
 --   [nomain] rwh_jsonmap.lua
 --   [nomain] rwh_utilities.lua
 -- @changelog
---   Initial release
+--   Added undo/redo to client, and ability to control undo/redo (as well as for group)
 -- @about
 --   Main library for handling all other required libraries
 
