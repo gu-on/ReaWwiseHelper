@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="ReaWwiseHelper" commit="36b89bf78cf447fd0be0962a7b10533a54bd7a64">
+<index version="1" name="ReaWwiseHelper" commit="07ebbbc9b4b38dc7ac38352c9b1ccbf74da767af">
   <category name="Core">
     <reapack name="reawwisehelper.lua" type="script" desc="ReaWwiseHelper">
       <metadata>
@@ -20,9 +20,33 @@
         <source file="rwh_jsonmap.lua">https://github.com/gu-on/ReaWwiseHelper/raw/36b89bf78cf447fd0be0962a7b10533a54bd7a64/Core/rwh_jsonmap.lua</source>
         <source file="rwh_utilities.lua">https://github.com/gu-on/ReaWwiseHelper/raw/36b89bf78cf447fd0be0962a7b10533a54bd7a64/Core/rwh_utilities.lua</source>
       </version>
+      <version name="0.2.0" author="guonaudio" time="2024-12-28T21:13:16Z">
+        <changelog><![CDATA[Added undo/redo to client, and ability to control undo/redo (as well as for group)]]></changelog>
+        <source>https://github.com/gu-on/ReaWwiseHelper/raw/07ebbbc9b4b38dc7ac38352c9b1ccbf74da767af/Core/reawwisehelper.lua</source>
+        <source file="rwh_classic.lua">https://github.com/gu-on/ReaWwiseHelper/raw/07ebbbc9b4b38dc7ac38352c9b1ccbf74da767af/Core/rwh_classic.lua</source>
+        <source file="rwh_waapiclient.lua">https://github.com/gu-on/ReaWwiseHelper/raw/07ebbbc9b4b38dc7ac38352c9b1ccbf74da767af/Core/rwh_waapiclient.lua</source>
+        <source file="rwh_jsonarray.lua">https://github.com/gu-on/ReaWwiseHelper/raw/07ebbbc9b4b38dc7ac38352c9b1ccbf74da767af/Core/rwh_jsonarray.lua</source>
+        <source file="rwh_jsonmap.lua">https://github.com/gu-on/ReaWwiseHelper/raw/07ebbbc9b4b38dc7ac38352c9b1ccbf74da767af/Core/rwh_jsonmap.lua</source>
+        <source file="rwh_utilities.lua">https://github.com/gu-on/ReaWwiseHelper/raw/07ebbbc9b4b38dc7ac38352c9b1ccbf74da767af/Core/rwh_utilities.lua</source>
+      </version>
     </reapack>
   </category>
   <category name="Examples">
+    <reapack name="ReaWwiseHelper_Delete Objects With Temp Prefix.lua" type="script" desc="Wwise Delete Objects with Temp Prefix">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Delete objects with "temp_" prefix\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="guonaudio" time="2024-12-28T21:13:16Z">
+        <changelog><![CDATA[Initial release]]></changelog>
+        <source main="main">https://github.com/gu-on/ReaWwiseHelper/raw/07ebbbc9b4b38dc7ac38352c9b1ccbf74da767af/Examples/ReaWwiseHelper_Delete%20Objects%20With%20Temp%20Prefix.lua</source>
+      </version>
+    </reapack>
     <reapack name="ReaWwiseHelper_Get Selected Objects.lua" type="script" desc="Wwise Get Selected Objects">
       <metadata>
         <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
