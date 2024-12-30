@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="ReaWwiseHelper" commit="07ebbbc9b4b38dc7ac38352c9b1ccbf74da767af">
+<index version="1" name="ReaWwiseHelper" commit="9f745edc43d0e678aef5cddc2475944403450e52">
   <category name="Core">
     <reapack name="reawwisehelper.lua" type="script" desc="ReaWwiseHelper">
       <metadata>
@@ -28,6 +28,15 @@
         <source file="rwh_jsonarray.lua">https://github.com/gu-on/ReaWwiseHelper/raw/07ebbbc9b4b38dc7ac38352c9b1ccbf74da767af/Core/rwh_jsonarray.lua</source>
         <source file="rwh_jsonmap.lua">https://github.com/gu-on/ReaWwiseHelper/raw/07ebbbc9b4b38dc7ac38352c9b1ccbf74da767af/Core/rwh_jsonmap.lua</source>
         <source file="rwh_utilities.lua">https://github.com/gu-on/ReaWwiseHelper/raw/07ebbbc9b4b38dc7ac38352c9b1ccbf74da767af/Core/rwh_utilities.lua</source>
+      </version>
+      <version name="0.2.1" author="guonaudio" time="2024-12-30T13:46:54Z">
+        <changelog><![CDATA[Throw error if ReaWwise is not installed]]></changelog>
+        <source>https://github.com/gu-on/ReaWwiseHelper/raw/9f745edc43d0e678aef5cddc2475944403450e52/Core/reawwisehelper.lua</source>
+        <source file="rwh_classic.lua">https://github.com/gu-on/ReaWwiseHelper/raw/9f745edc43d0e678aef5cddc2475944403450e52/Core/rwh_classic.lua</source>
+        <source file="rwh_waapiclient.lua">https://github.com/gu-on/ReaWwiseHelper/raw/9f745edc43d0e678aef5cddc2475944403450e52/Core/rwh_waapiclient.lua</source>
+        <source file="rwh_jsonarray.lua">https://github.com/gu-on/ReaWwiseHelper/raw/9f745edc43d0e678aef5cddc2475944403450e52/Core/rwh_jsonarray.lua</source>
+        <source file="rwh_jsonmap.lua">https://github.com/gu-on/ReaWwiseHelper/raw/9f745edc43d0e678aef5cddc2475944403450e52/Core/rwh_jsonmap.lua</source>
+        <source file="rwh_utilities.lua">https://github.com/gu-on/ReaWwiseHelper/raw/9f745edc43d0e678aef5cddc2475944403450e52/Core/rwh_utilities.lua</source>
       </version>
     </reapack>
   </category>
