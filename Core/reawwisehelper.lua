@@ -15,7 +15,7 @@
 
 ---@class iterator # 
 
-if not reaper.APIExists("AK_Waapi_Connected") then
+if not reaper.APIExists("AK_Waapi_Connect") then
     error("ReaWwise missing. Please install via ReaPack -> https://github.com/audiokinetic/ReaWwise?tab=readme-ov-file#installing-reawwise-through-reapack")
 end
 
