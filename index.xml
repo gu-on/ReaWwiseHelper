@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="ReaWwiseHelper" commit="9f745edc43d0e678aef5cddc2475944403450e52">
+<index version="1" name="ReaWwiseHelper" commit="8973b4a98d825ee3af51c125afabf561b706c231">
   <category name="Core">
     <reapack name="reawwisehelper.lua" type="script" desc="ReaWwiseHelper">
       <metadata>
@@ -99,6 +99,21 @@
       <version name="1.0" author="guonaudio" time="2024-12-27T19:26:04Z">
         <changelog><![CDATA[Initial release]]></changelog>
         <source main="main">https://github.com/gu-on/ReaWwiseHelper/raw/36b89bf78cf447fd0be0962a7b10533a54bd7a64/Examples/ReaWwiseHelper_Print%20Sounds%20in%20Actor-Mixer%20Hierarchy.lua</source>
+      </version>
+    </reapack>
+    <reapack name="ReaWwiseHelper_Print WAAPI Functions.lua" type="script" desc="Wwise Get Selected Objects">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 \fmodern Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 Gets and prints\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0" author="guonaudio" time="2025-04-17T14:53:56Z">
+        <changelog><![CDATA[Initial release]]></changelog>
+        <source main="main">https://github.com/gu-on/ReaWwiseHelper/raw/8973b4a98d825ee3af51c125afabf561b706c231/Examples/ReaWwiseHelper_Print%20WAAPI%20Functions.lua</source>
       </version>
     </reapack>
   </category>
