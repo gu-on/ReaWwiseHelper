@@ -21,5 +21,8 @@ end
 
 ---@nodiscard
 function table.isempty(t)
-    return #t <= 0
+    for _, _ in pairs(t) do
+        return true
+    end
+    return false
 end
