@@ -1,6 +1,6 @@
 -- @description ReaWwiseHelper
 -- @author guonaudio
--- @version 0.2.1
+-- @version 0.2.2
 -- @provides 
 --   [nomain] .
 --   [nomain] rwh_classic.lua
@@ -9,7 +9,8 @@
 --   [nomain] rwh_jsonmap.lua
 --   [nomain] rwh_utilities.lua
 -- @changelog
---   Throw error if ReaWwise is not installed
+--   Correct check in APIExists for function that actually exists
+--   Also some smaller style changes
 -- @about
 --   Main library for handling all other required libraries
 
