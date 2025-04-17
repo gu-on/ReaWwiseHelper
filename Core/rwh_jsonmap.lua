@@ -5,7 +5,7 @@
 ---@field keys string[] Read-only keys of currently held data
 ---@overload fun(): JsonMap Creates a blank array
 ---@overload fun(map: AK_Map): JsonMap Provides a wrapper over existing ak type
----@overload fun(key: string, value: any): JsonMap Maps value to key 
+---@overload fun(key: string, value: any): JsonMap Maps value to key
 ---@operator call: JsonMap
 JsonMap = Object:extend()
 
@@ -103,11 +103,13 @@ function JsonMap:Set(key, value)
     end
 
     local switch <const> = {
-        ['string'] = function() return reaper.AK_AkVariant_String(--[[@cast value string]] value) end,
-        ['number'] = function() return math.tointeger(value) and
-                reaper.AK_AkVariant_Int(--[[@cast value integer]] value) or
-                reaper.AK_AkVariant_Double(--[[@cast value number]] value) end,
-        ['boolean'] = function() return reaper.AK_AkVariant_Bool(--[[@cast value boolean]] value) end,
+        ['string'] = function() return reaper.AK_AkVariant_String( --[[@cast value string]] value) end,
+        ['number'] = function()
+            return math.tointeger(value) and
+                reaper.AK_AkVariant_Int( --[[@cast value integer]] value) or
+                reaper.AK_AkVariant_Double( --[[@cast value number]] value)
+        end,
+        ['boolean'] = function() return reaper.AK_AkVariant_Bool( --[[@cast value boolean]] value) end,
         ['default'] = function() return --[[@cast value AK_Variant]] value end
     }
 

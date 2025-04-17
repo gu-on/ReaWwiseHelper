@@ -39,9 +39,11 @@ end
 function JsonArray:Add(entry)
     local switch <const> = {
         ['string'] = function() return reaper.AK_AkVariant_String(entry) end,
-        ['number'] = function() return math.tointeger(entry) and
+        ['number'] = function()
+            return math.tointeger(entry) and
                 reaper.AK_AkVariant_Int(entry) or
-                reaper.AK_AkVariant_Double(entry) end,
+                reaper.AK_AkVariant_Double(entry)
+        end,
         ['boolean'] = function() return reaper.AK_AkVariant_Bool(entry) end,
         ['default'] = function() return nil end
     }
@@ -56,6 +58,34 @@ end
 ---@return AK_Type
 function JsonArray:Get(index)
     return reaper.AK_AkJson_Array_Get(self.id, index)
+end
+
+---@param index integer
+---@return boolean
+function JsonArray:GetBool(index)
+    local var <const> = self:Get(index) ---@cast var AK_Variant
+    return reaper.AK_AkVariant_GetBool(var)
+end
+
+---@param index integer
+---@return integer
+function JsonArray:GetInt(index)
+    local var <const> = self:Get(index) ---@cast var AK_Variant
+    return reaper.AK_AkVariant_GetInt(var)
+end
+
+---@param index integer
+---@return number
+function JsonArray:GetDouble(index)
+    local var <const> = self:Get(index) ---@cast var AK_Variant
+    return reaper.AK_AkVariant_GetDouble(var)
+end
+
+---@param index integer
+---@return string
+function JsonArray:GetString(index)
+    local var <const> = self:Get(index) ---@cast var AK_Variant
+    return reaper.AK_AkVariant_GetString(var)
 end
 
 ---Gets value at index as a JsonMap

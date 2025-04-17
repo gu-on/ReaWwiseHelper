@@ -21,7 +21,7 @@ if client then
     if isValid then
         local objects = result:GetJsonMapTable("objects")
         for _, object in pairs(objects) do
-            reaper.ShowConsoleMsg(object:GetString(returns))
+            reaper.ShowConsoleMsg(("%s\n"):format(object:GetString(returns)))
         end
     end
 end
