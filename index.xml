@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="ReaWwiseHelper" commit="8973b4a98d825ee3af51c125afabf561b706c231">
+<index version="1" name="ReaWwiseHelper" commit="31a33fb6344e082c06acb452028012e9917ae9b5">
   <category name="Core">
     <reapack name="reawwisehelper.lua" type="script" desc="ReaWwiseHelper">
       <metadata>
@@ -37,6 +37,16 @@
         <source file="rwh_jsonarray.lua">https://github.com/gu-on/ReaWwiseHelper/raw/9f745edc43d0e678aef5cddc2475944403450e52/Core/rwh_jsonarray.lua</source>
         <source file="rwh_jsonmap.lua">https://github.com/gu-on/ReaWwiseHelper/raw/9f745edc43d0e678aef5cddc2475944403450e52/Core/rwh_jsonmap.lua</source>
         <source file="rwh_utilities.lua">https://github.com/gu-on/ReaWwiseHelper/raw/9f745edc43d0e678aef5cddc2475944403450e52/Core/rwh_utilities.lua</source>
+      </version>
+      <version name="0.2.2" author="guonaudio" time="2025-04-17T16:28:55Z">
+        <changelog><![CDATA[Correct check in APIExists for function that actually exists
+Also some smaller style changes]]></changelog>
+        <source>https://github.com/gu-on/ReaWwiseHelper/raw/31a33fb6344e082c06acb452028012e9917ae9b5/Core/reawwisehelper.lua</source>
+        <source file="rwh_classic.lua">https://github.com/gu-on/ReaWwiseHelper/raw/31a33fb6344e082c06acb452028012e9917ae9b5/Core/rwh_classic.lua</source>
+        <source file="rwh_waapiclient.lua">https://github.com/gu-on/ReaWwiseHelper/raw/31a33fb6344e082c06acb452028012e9917ae9b5/Core/rwh_waapiclient.lua</source>
+        <source file="rwh_jsonarray.lua">https://github.com/gu-on/ReaWwiseHelper/raw/31a33fb6344e082c06acb452028012e9917ae9b5/Core/rwh_jsonarray.lua</source>
+        <source file="rwh_jsonmap.lua">https://github.com/gu-on/ReaWwiseHelper/raw/31a33fb6344e082c06acb452028012e9917ae9b5/Core/rwh_jsonmap.lua</source>
+        <source file="rwh_utilities.lua">https://github.com/gu-on/ReaWwiseHelper/raw/31a33fb6344e082c06acb452028012e9917ae9b5/Core/rwh_utilities.lua</source>
       </version>
     </reapack>
   </category>
