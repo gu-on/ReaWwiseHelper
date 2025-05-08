@@ -46,7 +46,7 @@ function WaapiClient:Close()
     self:Disconnect()
 end
 
----@param command waapi_uri # commands
+---@param command string|waapi_uri # commands
 ---@param options JsonMap? # arguments
 ---@param parameters JsonMap? # options
 ---@return boolean, JsonMap
