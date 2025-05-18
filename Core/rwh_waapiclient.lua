@@ -58,7 +58,7 @@ function WaapiClient:Call(command, options, parameters)
     return status, result
 end
 
----@param command WwiseAuthoringCommandIdentifiers
+---@param command string|WwiseAuthoringCommandIdentifiers
 ---@param arguments JsonMap|JsonMap[]|nil
 function WaapiClient:ExecuteCommand(command, arguments)
     local options = JsonMap("command", command)

@@ -128,7 +128,7 @@
 ---| "ShowAudioPreferences" # Shows the Audio Preferences dialog.
 ---| "ShowBatchRename" # Shows the Batch Rename View, with the specified objects.
 ---| "ShowBugReport" # Shows the Bug Report page.
----| "ShowContactAK" # Shows <a class="el" href="../2024.1.1_8691/?source=SDK&id=namespace_a_k.html" title="Definition of data structures for AkAudioObject.">AK</a>'s Contact Us page.
+---| "ShowContactAK" # Shows <a class="el" href="../2024.1.5_8803/?source=SDK&id=namespace_a_k.html" title="Definition of data structures for AkAudioObject.">AK</a>'s Contact Us page.
 ---| "ShowContextualHelp" # Shows the Contextual Help View for a specified property.
 ---| "ShowControlSurfacesDlg" # Shows the Control Surfaces Settings dialog.
 ---| "ShowDefaultObjectValues" # Shows the Default Object Values dialog.
