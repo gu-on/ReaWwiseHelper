@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="ReaWwiseHelper" commit="31a33fb6344e082c06acb452028012e9917ae9b5">
+<index version="1" name="ReaWwiseHelper" commit="014b07b27d4570530e3ce6c5be8d029cdbe9d3b8">
   <category name="Core">
     <reapack name="reawwisehelper.lua" type="script" desc="ReaWwiseHelper">
       <metadata>
@@ -47,6 +47,18 @@ Also some smaller style changes]]></changelog>
         <source file="rwh_jsonarray.lua">https://github.com/gu-on/ReaWwiseHelper/raw/31a33fb6344e082c06acb452028012e9917ae9b5/Core/rwh_jsonarray.lua</source>
         <source file="rwh_jsonmap.lua">https://github.com/gu-on/ReaWwiseHelper/raw/31a33fb6344e082c06acb452028012e9917ae9b5/Core/rwh_jsonmap.lua</source>
         <source file="rwh_utilities.lua">https://github.com/gu-on/ReaWwiseHelper/raw/31a33fb6344e082c06acb452028012e9917ae9b5/Core/rwh_utilities.lua</source>
+      </version>
+      <version name="0.2.3" author="guonaudio" time="2025-05-18T13:43:37Z">
+        <changelog><![CDATA[Fixed some Lua Language Server warnings
+Added uri and globalcommands to be downloaded by ReaPack]]></changelog>
+        <source>https://github.com/gu-on/ReaWwiseHelper/raw/014b07b27d4570530e3ce6c5be8d029cdbe9d3b8/Core/reawwisehelper.lua</source>
+        <source file="rwh_classic.lua">https://github.com/gu-on/ReaWwiseHelper/raw/014b07b27d4570530e3ce6c5be8d029cdbe9d3b8/Core/rwh_classic.lua</source>
+        <source file="rwh_waapiclient.lua">https://github.com/gu-on/ReaWwiseHelper/raw/014b07b27d4570530e3ce6c5be8d029cdbe9d3b8/Core/rwh_waapiclient.lua</source>
+        <source file="rwh_jsonarray.lua">https://github.com/gu-on/ReaWwiseHelper/raw/014b07b27d4570530e3ce6c5be8d029cdbe9d3b8/Core/rwh_jsonarray.lua</source>
+        <source file="rwh_jsonmap.lua">https://github.com/gu-on/ReaWwiseHelper/raw/014b07b27d4570530e3ce6c5be8d029cdbe9d3b8/Core/rwh_jsonmap.lua</source>
+        <source file="rwh_utilities.lua">https://github.com/gu-on/ReaWwiseHelper/raw/014b07b27d4570530e3ce6c5be8d029cdbe9d3b8/Core/rwh_utilities.lua</source>
+        <source file="waapi_uri.lua">https://github.com/gu-on/ReaWwiseHelper/raw/014b07b27d4570530e3ce6c5be8d029cdbe9d3b8/Core/waapi_uri.lua</source>
+        <source file="waapi_globalcommands.lua">https://github.com/gu-on/ReaWwiseHelper/raw/014b07b27d4570530e3ce6c5be8d029cdbe9d3b8/Core/waapi_globalcommands.lua</source>
       </version>
     </reapack>
   </category>
